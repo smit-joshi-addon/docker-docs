@@ -8,12 +8,12 @@
    - **How to Use**:
      - Create a container on the default bridge:
        ```bash
-       docker run -dit --name container1 busybox
+       sudo docker run -dit --name container1 busybox
        ```
 
      - Check the container's IP:
        ```bash
-       docker inspect container1 | jq -r '.[0].NetworkSettings.Networks.bridge.IPAddress'
+       sudo docker inspect container1 | jq -r '.[0].NetworkSettings.Networks.bridge.IPAddress'
        ```
 
    - **Advantages**:
@@ -33,18 +33,18 @@
    - **How to Use**:
      - Create a user-defined bridge:
        ```bash
-       docker network create my_bridge
+       sudo docker network create my_bridge
        ```
 
      - Run containers on the network:
        ```bash
-       docker run -dit --name container1 --network my_bridge busybox
-       docker run -dit --name container2 --network my_bridge busybox
+       sudo docker run -dit --name container1 --network my_bridge busybox
+       sudo docker run -dit --name container2 --network my_bridge busybox
        ```
 
      - Test communication:
        ```bash
-       docker exec container1 ping container2
+       sudo docker exec container1 ping container2
        ```
 
    - **Advantages**:
@@ -63,7 +63,7 @@
    - **How to Use**:
      - Create a MACVLAN network:
        ```bash
-       docker network create -dit macvlan \
+       sudo docker network create -dit macvlan \
        --subnet=192.168.1.0/24 \
        --gateway=192.168.1.1 \
        -o parent=eth0 macvlan_net
@@ -71,7 +71,7 @@
 
      - Run a container on this network:
        ```bash
-       docker run -d --name container1 --network macvlan_net busybox
+       sudo docker run -d --name container1 --network macvlan_net busybox
        ```
 
    - **Advantages**:
@@ -92,7 +92,7 @@
    - **How to Use**:
      - Create a MACVLAN with VLAN tagging:
        ```bash
-       docker network create -dit macvlan \
+       sudo docker network create -dit macvlan \
        --subnet=192.168.1.0/24 \
        --gateway=192.168.1.1 \
        -o parent=eth0.100 macvlan_vlan100
@@ -100,7 +100,7 @@
 
      - Run a container on this VLAN network:
        ```bash
-       docker run -d --name container1 --network macvlan_vlan100 busybox
+       sudo docker run -d --name container1 --network macvlan_vlan100 busybox
        ```
 
    - **Advantages**:
@@ -120,7 +120,7 @@
    - **How to Use**:
      - Create an IPVLAN L2 network:
        ```bash
-       docker network create -dit ipvlan \
+       sudo docker network create -dit ipvlan \
        --subnet=192.168.1.0/24 \
        --gateway=192.168.1.1 \
        -o parent=eth0 ipvlan_l2
@@ -128,7 +128,7 @@
 
      - Run a container on this network:
        ```bash
-       docker run -d --name container1 --network ipvlan_l2 busybox
+       sudo docker run -d --name container1 --network ipvlan_l2 busybox
        ```
 
    - **Advantages**:
@@ -147,7 +147,7 @@
    - **How to Use**:
      - Create an IPVLAN L3 network:
        ```bash
-       docker network create -dit ipvlan \
+       sudo docker network create -dit ipvlan \
        --subnet=192.168.1.0/24 \
        --gateway=192.168.1.1 \
        -o parent=eth0 -o ipvlan_mode=l3 ipvlan_l3
@@ -155,7 +155,7 @@
 
      - Run a container on this network:
        ```bash
-       docker run -d --name container1 --network ipvlan_l3 busybox
+       sudo docker run -d --name container1 --network ipvlan_l3 busybox
        ```
 
    - **Advantages**:
@@ -174,12 +174,12 @@
    - **How to Use**:
      - Create an overlay network:
        ```bash
-       docker network create -d overlay my_overlay
+       sudo docker network create -d overlay my_overlay
        ```
 
      - Run a container on the overlay network (typically used in Swarm):
        ```bash
-       docker service create --name my_service --network my_overlay busybox
+       sudo docker service create --name my_service --network my_overlay busybox
        ```
 
    - **Advantages**:
