@@ -38,8 +38,8 @@
 
      - Run containers on the network:
        ```bash
-       docker run -d --name container1 --network my_bridge busybox
-       docker run -d --name container2 --network my_bridge busybox
+       docker run -dit --name container1 --network my_bridge busybox
+       docker run -dit --name container2 --network my_bridge busybox
        ```
 
      - Test communication:
@@ -63,7 +63,7 @@
    - **How to Use**:
      - Create a MACVLAN network:
        ```bash
-       docker network create -d macvlan \
+       docker network create -dit macvlan \
        --subnet=192.168.1.0/24 \
        --gateway=192.168.1.1 \
        -o parent=eth0 macvlan_net
@@ -92,7 +92,7 @@
    - **How to Use**:
      - Create a MACVLAN with VLAN tagging:
        ```bash
-       docker network create -d macvlan \
+       docker network create -dit macvlan \
        --subnet=192.168.1.0/24 \
        --gateway=192.168.1.1 \
        -o parent=eth0.100 macvlan_vlan100
@@ -120,7 +120,7 @@
    - **How to Use**:
      - Create an IPVLAN L2 network:
        ```bash
-       docker network create -d ipvlan \
+       docker network create -dit ipvlan \
        --subnet=192.168.1.0/24 \
        --gateway=192.168.1.1 \
        -o parent=eth0 ipvlan_l2
@@ -147,7 +147,7 @@
    - **How to Use**:
      - Create an IPVLAN L3 network:
        ```bash
-       docker network create -d ipvlan \
+       docker network create -dit ipvlan \
        --subnet=192.168.1.0/24 \
        --gateway=192.168.1.1 \
        -o parent=eth0 -o ipvlan_mode=l3 ipvlan_l3
