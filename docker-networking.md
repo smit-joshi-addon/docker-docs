@@ -120,7 +120,7 @@
    - **How to Use**:
      - Create an IPVLAN L2 network:
        ```bash
-       sudo docker network create -dit ipvlan \
+       sudo docker network create -d ipvlan \
        --subnet=192.168.1.0/24 \
        --gateway=192.168.1.1 \
        -o parent=eth0 ipvlan_l2
@@ -128,7 +128,7 @@
 
      - Run a container on this network:
        ```bash
-       sudo docker run -d --name container1 --network ipvlan_l2 busybox
+       sudo docker run -dit --name container1 --network ipvlan_l2 busybox
        ```
 
    - **Advantages**:
