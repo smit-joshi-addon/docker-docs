@@ -63,7 +63,7 @@
    - **How to Use**:
      - Create a MACVLAN network:
        ```bash
-       sudo docker network create -dit macvlan \
+       sudo docker network create -d macvlan \
        --subnet=192.168.1.0/24 \
        --gateway=192.168.1.1 \
        -o parent=eth0 macvlan_net
@@ -71,7 +71,7 @@
 
      - Run a container on this network:
        ```bash
-       sudo docker run -d --name container1 --network macvlan_net busybox
+       sudo docker run -dit --name container1 --network macvlan_net busybox
        ```
 
    - **Advantages**:
