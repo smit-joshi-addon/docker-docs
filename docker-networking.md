@@ -92,7 +92,7 @@
    - **How to Use**:
      - Create a MACVLAN with VLAN tagging:
        ```bash
-       sudo docker network create -dit macvlan \
+       sudo docker network create -d macvlan \
        --subnet=192.168.1.0/24 \
        --gateway=192.168.1.1 \
        -o parent=eth0.100 macvlan_vlan100
