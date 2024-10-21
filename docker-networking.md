@@ -100,7 +100,7 @@
 
      - Run a container on this VLAN network:
        ```bash
-       sudo docker run -d --name container1 --network macvlan_vlan100 busybox
+       sudo docker run -dit --name container1 --network macvlan_vlan100 busybox
        ```
 
    - **Advantages**:
