@@ -147,7 +147,7 @@
    - **How to Use**:
      - Create an IPVLAN L3 network:
        ```bash
-       sudo docker network create -dit ipvlan \
+       sudo docker network create -d ipvlan \
        --subnet=192.168.1.0/24 \
        --gateway=192.168.1.1 \
        -o parent=eth0 -o ipvlan_mode=l3 ipvlan_l3
@@ -155,7 +155,7 @@
 
      - Run a container on this network:
        ```bash
-       sudo docker run -d --name container1 --network ipvlan_l3 busybox
+       sudo docker run -dit --name container1 --network ipvlan_l3 busybox
        ```
 
    - **Advantages**:
