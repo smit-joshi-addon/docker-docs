@@ -8,7 +8,7 @@
    - **How to Use**:
      - Create a container on the default bridge:
        ```bash
-       docker run -d --name container1 busybox
+       docker run -dit --name container1 busybox
        ```
 
      - Check the container's IP:
